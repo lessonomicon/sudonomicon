@@ -1,10 +1,10 @@
 # Tutorial data.
 title = "The Sudonomicon"
 subtitle = "Unix Systems for Weary Data Scientists"
-repo = "https://github.com/gvwilson/sys-tutorial"
-site = f"https://gvwilson.github.io/sys-tutorial/"
-release = "https://github.com/gvwilson/sys-tutorial/raw/main/sys-tutorial.zip"
-# plausible = "gvwilson.github.io/sys-tutorial"
+repo = "https://github.com/lessonomicon/sudonomicon"
+site = f"https://lessonomicon.github.io/sudonomicon/"
+release = "https://github.com/lessonomicon/sudonomicon/raw/main/sudonomicon.zip"
+# plausible = "lessonomicon.github.io/sudonomicon"
 author = {
     "name": "Greg Wilson",
     "email": "gvwilson@third-bit.com",

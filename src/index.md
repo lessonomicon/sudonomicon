@@ -26,8 +26,8 @@
 <p>
   <em>
     "[% config "title" %]" is a <a href="[% config "author.site" %]">Third Bit</a> production.
-    You may also enjoy <a href="https://gvwilson.github.io/rsdx/">Research Software Design by Example</a>
-    and <a href="https://gvwilson.github.io/sql-tutorial/">The Querynomicon</a>.
+    You may also enjoy <a href="https://lessonomicon.github.io/rsdx/">Research Software Design by Example</a>
+    and <a href="https://lessonomicon.github.io/querynomicon/">The Querynomicon</a>.
   </em>
 </p>
 
@@ -35,5 +35,5 @@
 
 If you would like to help get this tutorial to a usable state,
 please see
-<a href="https://github.com/gvwilson/sys-tutorial/issues?q=is%3Aissue+is%3Aopen+label%3Ahelp-wanted">these issues</a>
+<a href="https://github.com/lessonomicon/sudonomicon/issues?q=is%3Aissue+is%3Aopen+label%3Ahelp-wanted">these issues</a>
 or <a href="mailto:gvwilson@third-bit.com">contact the maintainer</a>.

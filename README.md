@@ -1,4 +1,4 @@
-# The Sudonomicon: Unix Systems for Weary Data Scientists
+# The Sudonomicon: An Introduction to Unix Systems for the Cautious and Weary
 
 -   Please see [the website][site] to view the current version of this tutorial.
 
@@ -28,9 +28,9 @@
   </p>
 </div>
 
-[conduct]: https://gvwilson.github.io/sys-tutorial/conduct/
-[contribute]: https://gvwilson.github.io/sys-tutorial/contributing/
-[help_wanted]: https://github.com/gvwilson/sys-tutorial/issues?q=is%3Aissue+is%3Aopen+label%3Ahelp-wanted
-[license]: https://gvwilson.github.io/sys-tutorial/license/
-[site]: https://gvwilson.github.io/sys-tutorial/
+[conduct]: https://lessonomicon.github.io/sudonomicon/conduct/
+[contribute]: https://lessonomicon.github.io/sudonomicon/contributing/
+[help_wanted]: https://github.com/lessonomicon/sudonomicon/issues?q=is%3Aissue+is%3Aopen+label%3Ahelp-wanted
+[license]: https://lessonomicon.github.io/sudonomicon/license/
+[site]: https://lessonomicon.github.io/sudonomicon/
 [t3]: https://teachtogether.tech/
