@@ -1,4 +1,0 @@
-fswatch
-pstree
-tree
-watch

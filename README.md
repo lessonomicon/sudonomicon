@@ -1,4 +1,28 @@
-# The Sudonomicon: An Introduction to Unix Systems for the Cautious and Weary
+# The Sudonomicon
+
+<p class="subtitle">An Introduction to Unix Systems for the Cautious and Weary</p>
+
+<div class="row" markdown="1">
+  <div class="col-4 center">
+    <img src="./static/advent_05_356.png" alt="Advent 356 by Danielle Navarro" style="width: 80%">
+  </div>
+  <div class="col-8" markdown="1">
+
+Many think they know Unix.
+Few realize that what they know is just a shell.
+Beneath it lie mysteries both bewildering and wonderful:
+ports, processes, permissions,
+files that are not files,
+and components built atop other, older components
+that occasionally rise to the surface like ancient sea creatures believed long extinct.
+
+Like such creatures,
+Unix will outlive those who mock it.
+Welcome, then, to a world in which the strange will become familiar, and the familiar, strange.
+Welcome, thrice welcome, to Unix systems programming.
+
+  </div>
+</div>
 
 -   Please see [the website][site] to view the current version of this tutorial.
 
@@ -16,17 +40,42 @@
 > when delivering it.
 > Please see [*Teaching Tech Together*][t3] for background.
 
-<div align="center">
-  <p>
-    <em>
-      Start where you are
-      <br/>
-      Use what you have
-      <br/>
-      Help who you can
-    </em>
-  </p>
-</div>
+## Syllabus
+
+<ol class="chapters" markdown="1">
+
+1.  [Introduction](./01_intro/index.md): who this is for and what it covers
+1.  [The Filesystem](./02_fs/index.md): how to manage files, directories, and their stranger kin
+1.  [Processes](./03_proc/index.md): how to create, signal, and interact with running programs
+1.  [Running Jobs](./04_jobs/index.md): how to do work on demand
+1.  [HTTP](./05_http/index.md): how to move data from place to place
+1.  [Authentication](./06_auth/index.md): how to tell who someone is
+1.  [Virtualization](./07_virt/index.md): how and why to pretend you have lots of computers
+1.  [Conclusion](./08_finale/index.md): where we've been and what comes next
+
+</ol>
+
+##  Appendices
+
+<ol class="appendices" markdown="1">
+
+1.  [Bibliography](./bibliography.md)
+1.  [Glossary](./glossary.md)
+1.  [License](./LICENSE.md)
+1.  [Code of Conduct](./CODE_OF_CONDUCT.md)
+1.  [Contributing](./CONTRIBUTING.md)
+
+</ol>
+
+<p class="center">
+  <em>
+    Start where you are
+    <br/>
+    Use what you have
+    <br/>
+    Help who you can
+  </em>
+</p>
 
 [conduct]: https://lessonomicon.github.io/sudonomicon/conduct/
 [contribute]: https://lessonomicon.github.io/sudonomicon/contributing/

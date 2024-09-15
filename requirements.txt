@@ -1,9 +1,0 @@
--r lib/mccole/requirements.txt
-beautifulsoup4
-fastapi
-flask
-pandas
-psutil
-requests
-requests_toolbelt
-uvicorn[standard]

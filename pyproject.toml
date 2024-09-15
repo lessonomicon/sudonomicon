@@ -1,0 +1,23 @@
+[project]
+name = "sudononomicon"
+version = "0.3.0"
+dependencies = [
+    "beautifulsoup4",
+    "fastapi",
+    "flask",
+    "mccole",
+    "pandas",
+    "psutil",
+    "requests",
+    "requests_toolbelt",
+    "uvicorn[standard]"
+]
+
+[tool.mccole]
+skips = ["bin", "old", "templates"]
+
+[tool.mccole.renames]
+"CODE_OF_CONDUCT.md" = "code_of_conduct.md"
+"CONTRIBUTING.md" = "contributing.md"
+"LICENSE.md" = "license.md"
+"README.md" = "index.md"
