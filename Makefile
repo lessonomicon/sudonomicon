@@ -4,7 +4,12 @@ include common.mk
 
 all: commands
 
-HTML_IGNORES = 'Attribute "x-' 'Attribute "@click' 'Attribute "file"'
+HTML_IGNORES = 
+
+## build: convert to HTML
+build:
+	mccole build ${CSS}
+	@touch docs/.nojekyll
 
 ## lint: check code and project
 lint:
@@ -13,15 +18,14 @@ lint:
 	@html5validator --root docs --blacklist templates --ignore ${HTML_IGNORES} \
 	&& echo "HTML checks passed."
 
-## render: convert to HTML
-render:
-	mccole render ${CSS}
-	@touch docs/.nojekyll
-
 ## profile: render with profiling
 profile:
 	mccole profile ${CSS}
 	@touch docs/.nojekyll
+
+## refresh: refresh all file inclusions
+refresh:
+	mccole refresh --files *_*/index.md
 
 ## serve: serve generated HTML
 serve:

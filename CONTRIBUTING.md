@@ -105,7 +105,7 @@ Our thanks to:
 [mccole]: https://pypi.org/project/mccole/
 [navarro_danielle]: https://art.djnavarro.net/
 [repo]: https://github.com/lessonomicon/sudonomicon
-[ruff]: https://pypi.org/project/ruff/
+[ruff]: https://astral.sh/ruff
 [stamps]: https://third-bit.com/colophon/
 [uv]: https://github.com/astral-sh/uv
 [wave]: https://wave.webaim.org/

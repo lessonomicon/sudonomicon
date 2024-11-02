@@ -42,22 +42,22 @@ Welcome, thrice welcome, to Unix systems programming.
 
 ## Syllabus
 
-<ol class="chapters" markdown="1">
+<div class="chapters" markdown="1">
 
-1.  [Introduction](./01_intro/index.md): who this is for and what it covers
-1.  [The Filesystem](./02_fs/index.md): how to manage files, directories, and their stranger kin
-1.  [Processes](./03_proc/index.md): how to create, signal, and interact with running programs
-1.  [Running Jobs](./04_jobs/index.md): how to do work on demand
-1.  [HTTP](./05_http/index.md): how to move data from place to place
-1.  [Authentication](./06_auth/index.md): how to tell who someone is
-1.  [Virtualization](./07_virt/index.md): how and why to pretend you have lots of computers
-1.  [Conclusion](./08_finale/index.md): where we've been and what comes next
+1.  [Introduction](./s01_intro/index.md): who this is for and what it covers
+1.  [The Filesystem](./s02_fs/index.md): how to manage files, directories, and their stranger kin
+1.  [Processes](./s03_proc/index.md): how to create, signal, and interact with running programs
+1.  [Running Jobs](./s04_jobs/index.md): how to do work on demand
+1.  [HTTP](./s05_http/index.md): how to move data from place to place
+1.  [Authentication](./s06_auth/index.md): how to tell who someone is
+1.  [Virtualization](./s07_virt/index.md): how and why to pretend you have lots of computers
+1.  [Conclusion](./s08_finale/index.md): where we've been and what comes next
 
-</ol>
+</div>
 
 ##  Appendices
 
-<ol class="appendices" markdown="1">
+<div class="appendices" markdown="1">
 
 1.  [Bibliography](./bibliography.md)
 1.  [Glossary](./glossary.md)
@@ -65,7 +65,7 @@ Welcome, thrice welcome, to Unix systems programming.
 1.  [Code of Conduct](./CODE_OF_CONDUCT.md)
 1.  [Contributing](./CONTRIBUTING.md)
 
-</ol>
+</div>
 
 <p class="center">
   <em>
