@@ -258,7 +258,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(content)))
         self.end_headers()
         self.wfile.write(content)
-```
+    ```
 
 -   Handle errors
 
@@ -277,7 +277,7 @@ ERROR_PAGE = """\
         content = ERROR_PAGE.format(path=self.path, msg=msg)
         content = bytes(content, "utf-8")
         self.send_content(content, HTTPStatus.NOT_FOUND)
-```
+    ```
 
 -   Define our own exceptions so we're sure we're only catching what we expect
 
@@ -429,7 +429,7 @@ What happens with each and why?
             raise ServerException(f"Cannot find {given_path}")
         except IOError:
             raise ServerException(f"Cannot read {given_path}")
-```
+    ```
 
 -   [Resolve](g:resolve_path) the constructed path
 -   Then check that it's below the current working directory (i.e., the sandbox)
@@ -521,7 +521,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         result = self.filter_data()
         as_json = result.to_json(orient="records")
         self.send_content(as_json, HTTPStatus.OK)
-```
+    ```
 
 -   Use `urlparse` and `parse_qs` from [`urllib.parse`][py_urllib_parse] to get query parameters
     -   (Key, list) dictionary
@@ -538,7 +538,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             year = int(params["year"][0])
             result = result[result["year"] == year]
         return result
-```
+    ```
 
 ## Exercise {: .exercise}
 

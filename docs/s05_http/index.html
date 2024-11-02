@@ -248,7 +248,7 @@ Start where you are, use what you have, help who you can.
 </li>
 </ul>
 <h2>Our Own File Server</h2>
-<pre class="language-py:do_get"><code class="language-py:do_get" data-file="file_server_unsafe.py:do_get">class RequestHandler(BaseHTTPRequestHandler):
+<pre class="language-py"><code class="language-py" data-file="file_server_unsafe.py:do_get">class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         try:
             url_path = self.path.lstrip("/")
@@ -272,17 +272,18 @@ Start where you are, use what you have, help who you can.
 <ul>
 <li>Serve files</li>
 </ul>
-<pre class="language-py:send_content"><code class="language-py:send_content" data-file="file_server_unsafe.py:send_content">    def send_content(self, content, status):
+<pre class="language-py"><code class="language-py" data-file="file_server_unsafe.py:send_content">    def send_content(self, content, status):
         self.send_response(int(status))
         self.send_header("Content-Type", "text/html; charset=utf-8")
         self.send_header("Content-Length", str(len(content)))
         self.end_headers()
         self.wfile.write(content)
-</code></pre>
-<ul>
-<li>Handle errors</li>
-</ul>
-<pre class="language-py:error_page"><code class="language-py:error_page" data-file="file_server_unsafe.py:error_page">ERROR_PAGE = """\
+    ```
+
+-   Handle errors
+
+```{data-file="file_server_unsafe.py:error_page"}
+ERROR_PAGE = """\
 &lt;html&gt;
   &lt;head&gt;&lt;title&gt;Error accessing {path}&lt;/title&gt;&lt;/head&gt;
   &lt;body&gt;
@@ -291,19 +292,20 @@ Start where you are, use what you have, help who you can.
 &lt;/html&gt;
 """
 </code></pre>
-<pre class="language-py:handle_error"><code class="language-py:handle_error" data-file="file_server_unsafe.py:handle_error">    def handle_error(self, msg):
+<pre class="language-py"><code class="language-py" data-file="file_server_unsafe.py:handle_error">    def handle_error(self, msg):
         content = ERROR_PAGE.format(path=self.path, msg=msg)
         content = bytes(content, "utf-8")
         self.send_content(content, HTTPStatus.NOT_FOUND)
-</code></pre>
-<ul>
-<li>Define our own exceptions so we're sure we're only catching what we expect</li>
-</ul>
-<pre class="language-py:exception"><code class="language-py:exception" data-file="file_server_unsafe.py:exception">class ServerException(Exception):
+    ```
+
+-   Define our own exceptions so we're sure we're only catching what we expect
+
+```{data-file="file_server_unsafe.py:exception"}
+class ServerException(Exception):
     pass
 </code></pre>
 <h2>Running Our File Server</h2>
-<pre class="language-py:main"><code class="language-py:main" data-file="file_server_unsafe.py:main">if __name__ == "__main__":
+<pre class="language-py"><code class="language-py" data-file="file_server_unsafe.py:main">if __name__ == "__main__":
     os.chdir(sys.argv[1])
     serverAddress = ("", 8000)
     server = HTTPServer(serverAddress, RequestHandler)
@@ -415,7 +417,7 @@ and then try to get <code>~/test.txt</code> using your browser,
 and <code>netcat</code>.
 What happens with each and why?</p>
 <h2>A Safer File Server</h2>
-<pre class="language-py:handle_file"><code class="language-py:handle_file" data-file="file_server_safe.py:handle_file">    def handle_file(self, given_path, full_path):
+<pre class="language-py"><code class="language-py" data-file="file_server_safe.py:handle_file">    def handle_file(self, given_path, full_path):
         try:
             resolved_path = str(full_path.resolve())
             sandbox = str(Path.cwd().resolve())
@@ -428,26 +430,27 @@ What happens with each and why?</p>
             raise ServerException(f"Cannot find {given_path}")
         except IOError:
             raise ServerException(f"Cannot read {given_path}")
-</code></pre>
-<ul>
-<li><a href="../glossary.html#resolve_path">Resolve</a> the constructed path</li>
-<li>Then check that it's below the current working directory (i.e., the sandbox)</li>
-<li>And fail if it isn't<ul>
-<li>Using our own <code>ServerException</code> guarantees that all errors are handled the same way</li>
-</ul>
-</li>
-</ul>
-<h2 class="exercise">Exercise</h2>
-<p><a href="../glossary.html#refactor">Refactor</a> the <code>do_GET</code> and <code>handle_file</code> methods in <code>RequestHandler</code>
+    ```
+
+-   [Resolve](g:resolve_path) the constructed path
+-   Then check that it's below the current working directory (i.e., the sandbox)
+-   And fail if it isn't
+    -   Using our own `ServerException` guarantees that all errors are handled the same way
+
+## Exercise {: .exercise}
+
+[Refactor](g:refactor) the `do_GET` and `handle_file` methods in `RequestHandler`
 so that all checks are in one place.
 Does this make the code easier to understand overall?
-Do you think making code easier to understand also makes it safer?</p>
-<h2>Serving Data</h2>
-<ul>
-<li>Rarely have JSON lying around as <a href="../glossary.html#static_file">static files</a></li>
-<li>More common to have either CSV or a database</li>
-</ul>
-<pre class="language-sh"><code class="language-sh" data-file="birds_head.sh">head -n 10 site/birds.csv
+Do you think making code easier to understand also makes it safer?
+
+## Serving Data
+
+-   Rarely have JSON lying around as [static files](g:static_file)
+-   More common to have either CSV or a database
+
+```{data-file="birds_head.sh"}
+head -n 10 site/birds.csv
 </code></pre>
 <pre class="language-out"><code class="language-out" data-file="birds_head.out">loc_id,latitude,longitude,region,year,month,day,species_id,num
 L13476859,60.8606726,-135.2015181,CA-YT,2021,2,1,redcro,3.0
@@ -464,7 +467,7 @@ L13476859,60.8606726,-135.2015181,CA-YT,2021,2,15,bkcchi,3.0
 <li>Modify server to generate it dynamically</li>
 <li>Main program</li>
 </ul>
-<pre class="language-py:main"><code class="language-py:main" data-file="bird_server_whole.py:main">def main():
+<pre class="language-py"><code class="language-py" data-file="bird_server_whole.py:main">def main():
     sandbox, filename = sys.argv[1], sys.argv[2]
     os.chdir(sandbox)
     df = pl.read_csv(filename)
@@ -475,7 +478,7 @@ L13476859,60.8606726,-135.2015181,CA-YT,2021,2,15,bkcchi,3.0
 <ul>
 <li>Create our own server class because we want to pass the dataframe in the constructor</li>
 </ul>
-<pre class="language-py:server"><code class="language-py:server" data-file="bird_server_whole.py:server">class BirdServer(HTTPServer):
+<pre class="language-py"><code class="language-py" data-file="bird_server_whole.py:server">class BirdServer(HTTPServer):
     def __init__(self, data, server_address, request_handler):
         super().__init__(server_address, request_handler)
         self._data = data
@@ -483,7 +486,7 @@ L13476859,60.8606726,-135.2015181,CA-YT,2021,2,15,bkcchi,3.0
 <ul>
 <li><code>do_GET</code> converts the dataframe to JSON (will modify later to do more than this)</li>
 </ul>
-<pre class="language-py:get"><code class="language-py:get" data-file="bird_server_whole.py:get">class RequestHandler(BaseHTTPRequestHandler):
+<pre class="language-py"><code class="language-py" data-file="bird_server_whole.py:get">class RequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         result = self.server._data.write_json(row_oriented=True)
         self.send_content(result, HTTPStatus.OK)
@@ -492,7 +495,7 @@ L13476859,60.8606726,-135.2015181,CA-YT,2021,2,15,bkcchi,3.0
 <li><code>send_content</code> <a href="../glossary.html#character_encoding">encodes</a> the JSON string as <a href="../glossary.html#utf_8">UTF-8</a>
     and sets the MIME type to <code>application/json</code></li>
 </ul>
-<pre class="language-py:send"><code class="language-py:send" data-file="bird_server_whole.py:send">    def send_content(self, content, status):
+<pre class="language-py"><code class="language-py" data-file="bird_server_whole.py:send">    def send_content(self, content, status):
         content = bytes(content, "utf-8")
         self.send_response(int(status))
         self.send_header("Content-Type", "application/json; charset=utf-8")
@@ -509,11 +512,11 @@ L13476859,60.8606726,-135.2015181,CA-YT,2021,2,15,bkcchi,3.0
 <li>Want <code>http://localhost:8000/?year=2021&amp;species=rebnut</code> to select red-breasted nuthatches in 2021</li>
 <li>Put slicing in a method of its own</li>
 </ul>
-<pre class="language-py:get"><code class="language-py:get" data-file="bird_server_slice.py:get">    def do_GET(self):
+<p><code>{data-file="bird_server_slice.py:get"}
+    def do_GET(self):
         result = self.filter_data()
         as_json = result.to_json(orient="records")
-        self.send_content(as_json, HTTPStatus.OK)
-</code></pre>
+        self.send_content(as_json, HTTPStatus.OK)</code></p>
 <ul>
 <li>Use <code>urlparse</code> and <code>parse_qs</code> from <a href="https://docs.python.org/3/library/urllib.parse.html"><code>urllib.parse</code></a> to get query parameters<ul>
 <li>(Key, list) dictionary</li>
@@ -521,7 +524,8 @@ L13476859,60.8606726,-135.2015181,CA-YT,2021,2,15,bkcchi,3.0
 </li>
 <li>Then filter data as requested</li>
 </ul>
-<pre class="language-py:filter"><code class="language-py:filter" data-file="bird_server_slice.py:filter">    def filter_data(self):
+<p><code>{data-file="bird_server_slice.py:filter"}
+    def filter_data(self):
         params = parse_qs(urlparse(self.path).query)
         result = self.server._data
         if "species" in params:
@@ -530,8 +534,7 @@ L13476859,60.8606726,-135.2015181,CA-YT,2021,2,15,bkcchi,3.0
         if "year" in params:
             year = int(params["year"][0])
             result = result[result["year"] == year]
-        return result
-</code></pre>
+        return result</code></p>
 <h2 class="exercise">Exercise</h2>
 <ol>
 <li>

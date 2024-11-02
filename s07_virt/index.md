@@ -12,6 +12,7 @@
 ```{data-file="show_virtual_env.sh"}
 echo $PATH | tr : '\n' | grep conda
 echo "python is" $(which python)
+
 ```
 ```{data-file="show_virtual_env.out"}
 /Users/tut/conda/envs/sys/bin

@@ -328,9 +328,6 @@ cat: /tmp/duplicate.txt: No such file or directory
 with open("/dev/urandom", "rb") as reader:
     bytes = reader.read(8)
 print([hex(b) for b in bytes])```
-```{data-file="random_bits.out"}
-['0x3b', '0x57', '0x49', '0x2', '0x4e', '0xac', '0x3c', '0xef']
-```
 
 ## Disks
 

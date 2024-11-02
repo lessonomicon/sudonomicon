@@ -213,7 +213,7 @@ revised content
 </li>
 <li>Other programs can also use those system calls</li>
 </ul>
-<pre class="language-py:create"><code class="language-py:create" data-file="chmod_example.py:create">import os
+<pre class="language-py"><code class="language-py" data-file="chmod_example.py:create">import os
 import stat
 
 filename = "/tmp/somefile.txt"
@@ -247,7 +247,7 @@ print(f"user ID {status.st_uid} group ID {status.st_gid}")
 </ul>
 </li>
 </ul>
-<pre class="language-py:lockdown"><code class="language-py:lockdown" data-file="chmod_example.py:lockdown">os.chmod(filename, 0)
+<pre class="language-py"><code class="language-py" data-file="chmod_example.py:lockdown">os.chmod(filename, 0)
 status = os.stat(filename)
 print(stat.filemode(status.st_mode))
 # ----------
@@ -391,14 +391,13 @@ cat: /tmp/duplicate.txt: No such file or directory
 <pre class="language-py"><code class="language-py" data-file="random_bits.py">with open("/dev/urandom", "rb") as reader:
     bytes = reader.read(8)
 print([hex(b) for b in bytes])```
-```{data-file="random_bits.out"}
-['0x3b', '0x57', '0x49', '0x2', '0x4e', '0xac', '0x3c', '0xef']
-</code></pre>
-<h2>Disks</h2>
-<ul>
-<li>Run the <code>df</code> command (for "disk free space")</li>
-</ul>
-<pre class="language-out"><code class="language-out" data-file="df_output.out">Filesystem     512-blocks      Used  Available Capacity iused      ifree %iused  Mounted on
+
+## Disks
+
+-   Run the `df` command (for "disk free space")
+
+```{data-file="df_output.out"}
+Filesystem     512-blocks      Used  Available Capacity iused      ifree %iused  Mounted on
 /dev/disk3s1s1 1942700360  20008776 1812103064     2%  403755 4294159622    0%   /
 devfs                 414       414          0   100%     722          0  100%   /dev
 /dev/disk3s6   1942700360        40 1812103064     1%       0 9060515320    0%   /System/Volumes/VM
