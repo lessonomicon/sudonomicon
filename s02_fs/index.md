@@ -35,9 +35,13 @@ total 8
 99138262 8 -rw-r--r--   1 tut  staff  174 Apr 20 07:50 bibliography.html
 ```
 
--   It's a shame there's no option for column titles, but we can add them manually ([%t ls_long_tmp %])
+-   It's a shame there's no option for column titles, but we can add them manually
 
-[%table slug=ls_long_tmp tbl=ls_long_tmp.tbl caption="Annotated Output of `ls`" %]
+| inode    | blocks | permissions | links | owner | group | bytes | date         | name              |
+| -------- | ------ | ----------- | ----- | ----- | ----- | ----- | ------------ | ----------------- |
+| 99138261 | 0      | drwxr-xr-x  |     3 | tut   | staff |    96 | Apr 20 07:50 | ./                |
+| 94560701 | 0      | drwxr-xr-x  |    22 | tut   | staff |   704 | Apr 20 07:53 | ../               |
+| 99138262 | 8      | -rw-r--r--  |     1 | tut   | staff |   174 | Apr 20 07:50 | bibliography.html |
 
 -   The [inode](g:inode) stores attributes and IDs of disk blocks
     -   No-one is sure any longer what the "i" stands for
@@ -45,7 +49,7 @@ total 8
     -   Design pattern: always generate and manage your own IDs
 -   Number of blocks
     -   Each block is typically 4kbyte, but that may vary
-    -   [%fixme "why 8 blocks for bibliography which is only 174 bytes?" %]
+    -   FIXME: why 8 blocks for bibliography which is only 174 bytes?
 -   Will discuss permissions later
 -   Number of [hard links](g:link_hard)
     -   I.e., the number of things that point to this file or directory
@@ -64,7 +68,7 @@ total 8
     -   [Authorization](g:authorization): who is allowed to do what?
     -   [Access control](g:access_control): how does the system enforce those rules?
 -   So operating systems needs to:
-    -   Match a person to an account (we will discuss in [%x auth %])
+    -   Match a person to an account (we will discuss [elsewhere](../s06_auth/index.md))
     -   Keep track of which account each process belongs to
     -   Keep track of what operations are permitted to whom
     -   Enforce those rules (which we won't go into)
@@ -103,9 +107,13 @@ groups	nobody everyone localaccounts
 
 -   A [capability](g:capability) is something that someone may or may not be able to do to a thing
     -   Which is incredibly vague
--   Files and directories capabilities are shown in [%t capabilities %]
+-   Files and directories capabilities are shown below
 
-[%table slug=capabilities tbl=capabilities.tbl caption="Unix File and Directory Capabilities" %]
+| Name    | Abbreviation | File            | Directory                       |
+| ------- | ------------ | --------------- | ------------------------------- |
+| Read    | r            | Inspect content | See what the directory contains |
+| Write   | w            | Modify content  | Add or remove contents          |
+| Execute | x            | Run program     | Enter or pass through directory |
 
 -   Read and write make sense
 -   Execute makes sense on files
@@ -117,7 +125,7 @@ groups	nobody everyone localaccounts
 
 ## Permissions in Practice
 
--   Go back to permissions in [%t ls_long_tmp %]
+-   Go back to permissions
 -   First letter is `-` for a regular file and `d` for a directory
     -   We will see other things below
 -   Then show read-write-execute permissions for user, group, and other (i.e., everyone else)
@@ -232,7 +240,7 @@ except OSError as exc:
 
 ## Hard Links
 
--   One of the columns in [%t ls_long_tmp %] is "links"
+-   One of the columns in earlier table is "links"
     -   How many references there are to a file in the filesystem
 -   Can create more links to an existing file
     -   What we think of as "files" are bookkeeping entries in the filesystem that refer to inodes
@@ -266,14 +274,11 @@ file content
 ## Symbolic Links
 
 -   A [symbolic link](g:link_sym) (or symlink) is a file that refers to another file
-    ([%f fs_links %])
 
-[% figure
-   slug=fs_links
-   img="links.svg"
-   alt="Relationship between hard and symbolic Links"
-   caption="Hard and Symbolic Links"
-%]
+<figure id="fs_links">
+  <img src="links.svg" alt="Relationship between hard and symbolic Links"/>
+  <figcaption>Figure 1: Hard and Symbolic Links</figcaption>
+</figure>
 
 ```{data-file="sym_link.text"}
 $ echo "file content" > /tmp/original.txt
@@ -355,7 +360,7 @@ map auto_home           0         0          0   100%       0          0     -  
 -   Where is the filesystem [mounted](g:mount)?
     -   I.e., what path do we use to tell the operating system we want that data?
 -   Most people won't ever have to worry about disks at this level
-    -   But we *will* think about mounting in [%x virt %]
+    -   But we *will* think about mounting [elsewhere](../s07_virt/index.md)
 
 ## Disk Usage
 

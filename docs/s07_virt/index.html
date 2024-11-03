@@ -195,7 +195,7 @@ UBUNTU_CODENAME=jammy
 </ul>
 <h2 class="aside">Wait, What's a Layer?</h2>
 <ul>
-<li>Every image consists of one or more <a href="../glossary.html#docker_layer">layers</a> ([%f virt_docker_layers %])</li>
+<li>Every image consists of one or more <a href="../glossary.html#docker_layer">layers</a></li>
 <li>Upper layers mask things in lower layers</li>
 <li>So if several images are built on top of <code>ubuntu:latest</code> the computer doesn't need to store multiple copies of it</li>
 <li>Layers are implemented by <a href="../glossary.html#copy_on_write">copy on write</a><ul>
@@ -206,12 +206,10 @@ and then continues</li>
 </ul>
 </li>
 </ul>
-<p>[% figure
-   slug=virt_docker_layers
-   img="docker_layers.svg"
-   alt="How layers and copy-on-write work in Docker"
-   caption="Docker layers and copy-on-write"
-%]</p>
+<figure id="virt_docker_layers">
+<img alt="How layers and copy-on-write work in Docker" src="docker_layers.svg"/>
+<figcaption>Figure 1: Docker Layers and Copy-on-Write</figcaption>
+</figure>
 <h2>Inside the Container</h2>
 <pre class="language-text"><code class="language-text" data-file="docker_run_interactive.text">$ docker container run -i -t ubuntu
 root@4238b3b51abd:/# pwd

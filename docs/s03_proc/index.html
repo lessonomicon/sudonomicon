@@ -78,9 +78,98 @@
 <li>"Something extraordinary happened, please deal with it immediately"</li>
 </ul>
 </li>
-<li>[%t process_signals %] shows what happened</li>
+<li>Table shows what happened</li>
 </ul>
-<p>[% table slug=process_signals tbl="signals.tbl" caption="Signals" %]</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Number</th>
+<th>Name</th>
+<th>Default Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">1</td>
+<td><code>SIGHUP</code></td>
+<td>terminate process</td>
+<td>terminal line hangup</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td><code>SIGINT</code></td>
+<td>terminate process</td>
+<td>interrupt program</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td><code>SIGQUIT</code></td>
+<td>create core image</td>
+<td>quit program</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td><code>SIGILL</code></td>
+<td>create core image</td>
+<td>illegal instruction</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td><code>SIGFPE</code></td>
+<td>create core image</td>
+<td>floating-point exception</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td><code>SIGKILL</code></td>
+<td>terminate process</td>
+<td>kill program</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td><code>SIGSEGV</code></td>
+<td>create core image</td>
+<td>segmentation violation</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td><code>SIGSYS</code></td>
+<td>create core image</td>
+<td>non-existent system call invoked</td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td><code>SIGALRM</code></td>
+<td>terminate process</td>
+<td>real-time timer expired</td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td><code>SIGTERM</code></td>
+<td>terminate process</td>
+<td>software termination signal</td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td><code>SIGSTOP</code></td>
+<td>stop process</td>
+<td>stop (cannot be caught or ignored)</td>
+</tr>
+<tr>
+<td style="text-align: right;">24</td>
+<td><code>SIGXCPU</code></td>
+<td>terminate process</td>
+<td>CPU time limit exceeded</td>
+</tr>
+<tr>
+<td style="text-align: right;">25</td>
+<td><code>SIGXFSZ</code></td>
+<td>terminate process</td>
+<td>file size limit exceeded</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>Create a <a href="../glossary.html#callback_function">callback function</a>
     to act as a <a href="../glossary.html#signal_handler">signal handler</a></li>

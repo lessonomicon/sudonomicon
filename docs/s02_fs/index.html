@@ -55,9 +55,58 @@
 99138262 8 -rw-r--r--   1 tut  staff  174 Apr 20 07:50 bibliography.html
 </code></pre>
 <ul>
-<li>It's a shame there's no option for column titles, but we can add them manually ([%t ls_long_tmp %])</li>
+<li>It's a shame there's no option for column titles, but we can add them manually</li>
 </ul>
-<p>[%table slug=ls_long_tmp tbl=ls_long_tmp.tbl caption="Annotated Output of <code>ls</code>" %]</p>
+<table>
+<thead>
+<tr>
+<th>inode</th>
+<th>blocks</th>
+<th>permissions</th>
+<th>links</th>
+<th>owner</th>
+<th>group</th>
+<th>bytes</th>
+<th>date</th>
+<th>name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>99138261</td>
+<td>0</td>
+<td>drwxr-xr-x</td>
+<td>3</td>
+<td>tut</td>
+<td>staff</td>
+<td>96</td>
+<td>Apr 20 07:50</td>
+<td>./</td>
+</tr>
+<tr>
+<td>94560701</td>
+<td>0</td>
+<td>drwxr-xr-x</td>
+<td>22</td>
+<td>tut</td>
+<td>staff</td>
+<td>704</td>
+<td>Apr 20 07:53</td>
+<td>../</td>
+</tr>
+<tr>
+<td>99138262</td>
+<td>8</td>
+<td>-rw-r--r--</td>
+<td>1</td>
+<td>tut</td>
+<td>staff</td>
+<td>174</td>
+<td>Apr 20 07:50</td>
+<td>bibliography.html</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>The <a href="../glossary.html#inode">inode</a> stores attributes and IDs of disk blocks<ul>
 <li>No-one is sure any longer what the "i" stands for</li>
@@ -67,7 +116,7 @@
 </li>
 <li>Number of blocks<ul>
 <li>Each block is typically 4kbyte, but that may vary</li>
-<li>[%fixme "why 8 blocks for bibliography which is only 174 bytes?" %]</li>
+<li>FIXME: why 8 blocks for bibliography which is only 174 bytes?</li>
 </ul>
 </li>
 <li>Will discuss permissions later</li>
@@ -94,7 +143,7 @@
 </ul>
 </li>
 <li>So operating systems needs to:<ul>
-<li>Match a person to an account (we will discuss in [%x auth %])</li>
+<li>Match a person to an account (we will discuss <a href="../s06_auth/index.html">elsewhere</a>)</li>
 <li>Keep track of which account each process belongs to</li>
 <li>Keep track of what operations are permitted to whom</li>
 <li>Enforce those rules (which we won't go into)</li>
@@ -138,9 +187,38 @@ groups  nobody everyone localaccounts
 <li>Which is incredibly vague</li>
 </ul>
 </li>
-<li>Files and directories capabilities are shown in [%t capabilities %]</li>
+<li>Files and directories capabilities are shown below</li>
 </ul>
-<p>[%table slug=capabilities tbl=capabilities.tbl caption="Unix File and Directory Capabilities" %]</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Abbreviation</th>
+<th>File</th>
+<th>Directory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read</td>
+<td>r</td>
+<td>Inspect content</td>
+<td>See what the directory contains</td>
+</tr>
+<tr>
+<td>Write</td>
+<td>w</td>
+<td>Modify content</td>
+<td>Add or remove contents</td>
+</tr>
+<tr>
+<td>Execute</td>
+<td>x</td>
+<td>Run program</td>
+<td>Enter or pass through directory</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>Read and write make sense</li>
 <li>Execute makes sense on files<ul>
@@ -156,7 +234,7 @@ groups  nobody everyone localaccounts
 </ul>
 <h2>Permissions in Practice</h2>
 <ul>
-<li>Go back to permissions in [%t ls_long_tmp %]</li>
+<li>Go back to permissions</li>
 <li>First letter is <code>-</code> for a regular file and <code>d</code> for a directory<ul>
 <li>We will see other things below</li>
 </ul>
@@ -279,7 +357,7 @@ except OSError as exc:
 </ul>
 <h2>Hard Links</h2>
 <ul>
-<li>One of the columns in [%t ls_long_tmp %] is "links"<ul>
+<li>One of the columns in earlier table is "links"<ul>
 <li>How many references there are to a file in the filesystem</li>
 </ul>
 </li>
@@ -317,15 +395,12 @@ file content
 </ul>
 <h2>Symbolic Links</h2>
 <ul>
-<li>A <a href="../glossary.html#link_sym">symbolic link</a> (or symlink) is a file that refers to another file
-    ([%f fs_links %])</li>
+<li>A <a href="../glossary.html#link_sym">symbolic link</a> (or symlink) is a file that refers to another file</li>
 </ul>
-<p>[% figure
-   slug=fs_links
-   img="links.svg"
-   alt="Relationship between hard and symbolic Links"
-   caption="Hard and Symbolic Links"
-%]</p>
+<figure id="fs_links">
+<img alt="Relationship between hard and symbolic Links" src="links.svg"/>
+<figcaption>Figure 1: Hard and Symbolic Links</figcaption>
+</figure>
 <pre class="language-text"><code class="language-text" data-file="sym_link.text">$ echo "file content" &gt; /tmp/original.txt
 
 $ ls -l /tmp/*.txt
@@ -422,7 +497,7 @@ map auto_home           0         0          0   100%       0          0     -  
 </ul>
 </li>
 <li>Most people won't ever have to worry about disks at this level<ul>
-<li>But we <em>will</em> think about mounting in [%x virt %]</li>
+<li>But we <em>will</em> think about mounting <a href="../s07_virt/index.html">elsewhere</a></li>
 </ul>
 </li>
 </ul>

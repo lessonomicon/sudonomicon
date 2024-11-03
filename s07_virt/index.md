@@ -201,7 +201,7 @@ UBUNTU_CODENAME=jammy
 
 ## Wait, What's a Layer? {: .aside}
 
--   Every image consists of one or more [layers](g:docker_layer) ([%f virt_docker_layers %])
+-   Every image consists of one or more [layers](g:docker_layer)
 -   Upper layers mask things in lower layers
 -   So if several images are built on top of `ubuntu:latest` the computer doesn't need to store multiple copies of it
 -   Layers are implemented by [copy on write](g:copy_on_write)
@@ -210,12 +210,10 @@ UBUNTU_CODENAME=jammy
 	makes a copy of that part of memory or disk for that container's private use,
 	and then continues
 
-[% figure
-   slug=virt_docker_layers
-   img="docker_layers.svg"
-   alt="How layers and copy-on-write work in Docker"
-   caption="Docker layers and copy-on-write"
-%]
+<figure id="virt_docker_layers">
+  <img src="docker_layers.svg" alt="How layers and copy-on-write work in Docker"/>
+  <figcaption>Figure 1: Docker Layers and Copy-on-Write</figcaption>
+</figure>
 
 ## Inside the Container
 

@@ -47,7 +47,7 @@ $ fswatch -l 1 -x Created -x Removed /tmp
 -   `/tmp`: look for any changes in this directory
 -   Get one line per change
     -   Common to pipe the output of `fswatch` to something that parses these lines and acts on them
--   [%fixme "why does removing the file generate a 'Created' record?" %]
+-   FIXME: why does removing the file generate a 'Created' record?
 
 ## And Then There's `cron`
 

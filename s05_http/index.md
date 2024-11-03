@@ -26,14 +26,12 @@ Start where you are, use what you have, help who you can.
 
 ## What Just Happened
 
--   [%f http_lifecycle %] shows what happened
+-   Figure shows what happened
 
-[% figure
-   slug=http_lifecycle
-   img="http_lifecycle.svg"
-   alt="HTTP request/response lifecycle"
-   caption="Lifecycle of an HTTP request and response"
-%]
+<figure id="http_lifecycle">
+  <img src="http_lifecycle.svg" alt="HTTP request/response lifecycle"/>
+  <figcaption>Figure 1: Lifecycle of an HTTP request and response</figcaption>
+</figure>
 
 -   Open a connection to the server
 -   Send an [HTTP request](g:http_request) for the file we want
@@ -170,17 +168,15 @@ body as JSON:
 -   Better to have the server return data as data
     -   Preferred format these days is [JSON](g:json)
     -   So common that `requests` has built-in support
--   Unfortunately, there is no standard for representing tabular data as JSON [%f http_json_tables %]
+-   Unfortunately, there is no standard for representing tabular data as JSON
     -   A list with one list with N column names + N lists of values?
     -   A list with N dictionaries, all with the same keys?
     -   A dictionary with column names and lists of values, all the same length?
 
-[% figure
-   slug=http_json_tables
-   img="http_json_tables.svg"
-   alt="Three ways to represent tables as JSON"
-   caption="Representing tables as JSON"
-%]
+<figure id="http_json_tables">
+  <img src="http_json_tables.svg" alt="Three ways to represent tables as JSON"/>
+  <figcaption>Figure 2: Representing tables as JSON</figcaption>
+</figure>
 
 ## Local Web Server
 

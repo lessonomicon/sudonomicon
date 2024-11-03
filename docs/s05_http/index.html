@@ -38,14 +38,12 @@ Start where you are, use what you have, help who you can.
 </ul>
 <h2>What Just Happened</h2>
 <ul>
-<li>[%f http_lifecycle %] shows what happened</li>
+<li>Figure shows what happened</li>
 </ul>
-<p>[% figure
-   slug=http_lifecycle
-   img="http_lifecycle.svg"
-   alt="HTTP request/response lifecycle"
-   caption="Lifecycle of an HTTP request and response"
-%]</p>
+<figure id="http_lifecycle">
+<img alt="HTTP request/response lifecycle" src="http_lifecycle.svg"/>
+<figcaption>Figure 1: Lifecycle of an HTTP request and response</figcaption>
+</figure>
 <ul>
 <li>Open a connection to the server</li>
 <li>Send an <a href="../glossary.html#http_request">HTTP request</a> for the file we want</li>
@@ -190,19 +188,17 @@ body as JSON:
 <li>So common that <code>requests</code> has built-in support</li>
 </ul>
 </li>
-<li>Unfortunately, there is no standard for representing tabular data as JSON [%f http_json_tables %]<ul>
+<li>Unfortunately, there is no standard for representing tabular data as JSON<ul>
 <li>A list with one list with N column names + N lists of values?</li>
 <li>A list with N dictionaries, all with the same keys?</li>
 <li>A dictionary with column names and lists of values, all the same length?</li>
 </ul>
 </li>
 </ul>
-<p>[% figure
-   slug=http_json_tables
-   img="http_json_tables.svg"
-   alt="Three ways to represent tables as JSON"
-   caption="Representing tables as JSON"
-%]</p>
+<figure id="http_json_tables">
+<img alt="Three ways to represent tables as JSON" src="http_json_tables.svg"/>
+<figcaption>Figure 2: Representing tables as JSON</figcaption>
+</figure>
 <h2>Local Web Server</h2>
 <ul>
 <li>Pushing files to GitHub so that we can use them is annoying</li>

@@ -52,9 +52,23 @@ ps -a -l
 
 -   Can send a [signal](g:signal) to a process
     -   "Something extraordinary happened, please deal with it immediately"
--   [%t process_signals %] shows what happened
+-   Table shows what happened
 
-[% table slug=process_signals tbl="signals.tbl" caption="Signals" %]
+| Number | Name      | Default Action    | Description |
+| -----: | --------- | ----------------- | ----------- |
+|      1 | `SIGHUP`  | terminate process | terminal line hangup |
+|      2 | `SIGINT`  | terminate process | interrupt program |
+|      3 | `SIGQUIT` | create core image | quit program |
+|      4 | `SIGILL`  | create core image | illegal instruction |
+|      8 | `SIGFPE`  | create core image | floating-point exception |
+|      9 | `SIGKILL` | terminate process | kill program |
+|     11 | `SIGSEGV` | create core image | segmentation violation |
+|     12 | `SIGSYS`  | create core image | non-existent system call invoked |
+|     14 | `SIGALRM` | terminate process | real-time timer expired |
+|     15 | `SIGTERM` | terminate process | software termination signal |
+|     17 | `SIGSTOP` | stop process      | stop (cannot be caught or ignored) |
+|     24 | `SIGXCPU` | terminate process | CPU time limit exceeded |
+|     25 | `SIGXFSZ` | terminate process | file size limit exceeded |
 
 -   Create a [callback function](g:callback_function)
     to act as a [signal handler](g:signal_handler)
