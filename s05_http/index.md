@@ -5,7 +5,7 @@
 ```{data-file="get_remote.py"}
 import requests
 
-url = "https://gvwilson.github.io/safety-tutorial/site/motto.txt"
+url = "https://lessonomicon.github.io/sudonomicon/site/motto.txt"
 response = requests.get(url)
 print(f"status code: {response.status_code}")
 print(f"body:\n{response.text}")
@@ -45,7 +45,7 @@ Start where you are, use what you have, help who you can.
 import requests
 from requests_toolbelt.utils import dump
 
-url = "https://gvwilson.github.io/safety-tutorial/site/motto.txt"
+url = "https://lessonomicon.github.io/sudonomicon/site/motto.txt"
 response = requests.get(url)
 data = dump.dump_all(response)
 print(str(data, "utf-8"))
