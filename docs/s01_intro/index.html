@@ -13,21 +13,18 @@
 <h1>Introduction</h1>
 <h2>Objective</h2>
 <ul>
-<li>Tried teaching <a href="https://www.docker.com/">Docker</a> to data scientists</li>
+<li>Tried teaching computer security to data scientists</li>
 <li>Had to back up every few minutes to explain underlying concepts<ul>
 <li>"What does it mean to 'mount' a filesystem?"</li>
 <li>"What does it mean to 'background' a job?"</li>
 <li>"What is a 'port'?"</li>
 </ul>
 </li>
-<li>Answer those questions step-by-step so that a web service running in Docker will make sense</li>
+<li>Answer those questions step-by-step so that securing a web service will make sense</li>
 </ul>
 <h2>What This Is</h2>
 <ul>
-<li>Notes and working examples that instructors can use to perform a lesson<ul>
-<li>Do <em>not</em> expect novices with no prior Unix experience to be able to learn from them on their own</li>
-</ul>
-</li>
+<li>Notes and working examples that instructors can use to perform a lesson</li>
 <li>Musical analogy<ul>
 <li>This is the chord changes and melody</li>
 <li>We expect instructors to create an arrangement and/or improvise while delivering</li>
@@ -42,10 +39,10 @@
 <li>Intended audience<ul>
 <li>Ning did a bachelor's degree in economics
     and now works as a data analyst for the Ministry of Health</li>
-<li>They are comfortable working with Unix command-line tools,
-    writing data analysis programs in Python,
+<li>They are comfortable working with common Unix command-line tools,
+    writing data analysis scripts in Python,
 and downloading data from the web manually</li>
-<li>Ning wants to understand what happens when they install a package
+<li>They want to understand what happens when they install a package
 or run a pipeline in the cloud</li>
 <li>Their work schedule is unpredictable and highly variable,
     so they need to be able to learn a bit at a time</li>
@@ -58,8 +55,7 @@ or run a pipeline in the cloud</li>
 <li><code>pwd</code>; <code>ls</code>; <code>cd</code>; <code>.</code> and <code>..</code>; <code>rm</code> and <code>rmdir</code>; <code>mkdir</code>; <code>touch</code>;
     <code>mv</code>; <code>cp</code>; <code>tree</code>; <code>cat</code>; <code>wc</code>; <code>head</code>; <code>tail</code>; <code>less</code>; <code>cut</code>; <code>echo</code>;
     <code>history</code>; <code>find</code>; <code>grep</code>; <code>zip</code>; <code>man</code></li>
-<li>current working directory; absolute and relative paths; naming files;
-    editing with <code>nano</code></li>
+<li>current working directory; absolute and relative paths; naming files</li>
 <li>standard input; standard output; standard error; redirection; pipes</li>
 <li><code>*</code> and <code>?</code> wildcards; shell variable with <code>$</code> expansion; <code>for</code> loop</li>
 </ul>
@@ -69,24 +65,22 @@ or run a pipeline in the cloud</li>
     <code>if</code>/<code>else</code>; <code>with</code>; defining and calling functions; <code>sys.argv</code>, <code>sys.stdin</code>,
     and <code>sys.stdout</code>; simple regular expressions; reading JSON data;
     reading CSV files using <a href="https://pandas.pydata.org/">Pandas</a> or <a href="https://pola.rs/">Polars</a></li>
-<li><code>pip install</code></li>
-<li><code>python -m venv</code> or <code>conda create</code></li>
+<li>create an environment with <a href="https://docs.astral.sh/uv/">uv</a>; activate it and install packages</li>
 </ul>
 </li>
 </ul>
 <h2>Learning Outcomes</h2>
 <ol>
-<li>Explain the difference between shell variables and environment variables
-    and write shell scripts that use each.</li>
+<li>Explain what environment variables are and write programs that use them.</li>
 <li>Create a virtual environment and explain what this actually does.</li>
-<li>Create <code>requirements.txt</code> file for <a href="https://pypi.org/project/pip/"><code>pip</code></a> and explain version pinning.</li>
+<li>Create <code>requirements.txt</code> file for Python and explain version pinning.</li>
 <li>Explain what a filesystem is (disk partitions, inodes, symbolic links)
     and use <code>df</code>, <code>ln</code>, similar commands to explore with them.</li>
 <li>Explain what a process is and use commands like <code>ps</code> and <code>kill</code> to explore and manage them.</li>
 <li>Explain what a job is and use commands like <code>jobs</code>, <code>bg</code>, and <code>fg</code> to manage them.</li>
 <li>Explain what <code>cron</code> jobs are and how to create them.</li>
 <li>Explain the difference between a container and a virtual machine.</li>
-<li>Create and manage Docker images.</li>
+<li>Create and manage <a href="https://www.docker.com/">Docker</a> images.</li>
 <li>Explain what ports are and write Python code that uses sockets and HTTP.</li>
 <li>Explain what certificates are and how they are used to support HTTPS.</li>
 <li>Explain what key pairs are and how they are stored, and create and manage key pairs.</li>

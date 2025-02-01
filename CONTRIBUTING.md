@@ -107,6 +107,6 @@ Our thanks to:
 [repo]: https://github.com/lessonomicon/sudonomicon
 [ruff]: https://astral.sh/ruff
 [stamps]: https://third-bit.com/colophon/
-[uv]: https://github.com/astral-sh/uv
+[uv]: https://docs.astral.sh/uv/
 [wave]: https://wave.webaim.org/
 [wilson_greg]: https://third-bit.com/

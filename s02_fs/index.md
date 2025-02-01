@@ -50,10 +50,10 @@ total 8
 -   Number of blocks
     -   Each block is typically 4kbyte, but that may vary
     -   FIXME: why 8 blocks for bibliography which is only 174 bytes?
--   Will discuss permissions later
+-   Permissions (discussed below)
 -   Number of [hard links](g:link_hard)
     -   I.e., the number of things that point to this file or directory
-    -   Discussed below
+    -   Also discussed below
 -   Names of user and group that own the file or directory
     -   Also discussed below
 -   Size in bytes (i.e., what `wc -c` reports)
